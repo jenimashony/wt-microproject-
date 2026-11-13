@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Horizons | Discover Your Dream Destination</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-teal-700 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-compass text-xl"></i>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-900">
+                        Wanderlust<span class="text-brand-600">Horizons</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#destinations" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Destinations</a>
+                    <a href="#packages" class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors">Packages</a>
+                    <a href="#plan-trip" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm hover:shadow transition-all">
+                        Plan Your Trip
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-5 space-y-2 shadow-lg">
+            <a href="#destinations" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Destinations</a>
+            <a href="#packages" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Packages</a>
+            <a href="#plan-trip" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold bg-brand-600 text-white text-center mt-2">Plan Your Trip</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative overflow-hidden bg-slate-900 text-white">
+        <!-- Scenic Background Image with Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80" 
+                onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0f172a/14b8a6?text=Discover+Your+Dream+Destination';"
+                alt="Scenic Mountain Valley at Sunset" 
+                class="w-full h-full object-cover object-center opacity-55 scale-105 transition-transform duration-1000"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-slate-900/30"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 flex flex-col items-center text-center">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-100 text-xs sm:text-sm font-medium mb-6">
+                <i class="fa-solid fa-sparkles text-amber-300"></i> Curated Experiences Across India & Beyond
+            </span>
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight max-w-4xl leading-tight mb-6">
+                Discover Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-300">Dream Destination</span>
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-slate-200 max-w-2xl mb-10 leading-relaxed font-normal">
+                From misty tea gardens in Munnar to the snow-dusted peaks of the Swiss Alps—customize your unforgettable journey with personalized itineraries and transparent pricing.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="#plan-trip" class="px-8 py-4 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-base shadow-lg shadow-brand-500/30 hover:shadow-brand-500/50 transition-all flex items-center justify-center gap-2">
+                    <span>Start Planning Now</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#destinations" class="px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-semibold text-base transition-all flex items-center justify-center">
+                    Explore Destinations
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED DESTINATIONS ==================== -->
+    <section id="destinations" class="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Handpicked Getaways</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 mt-2 mb-4">Featured Destinations</h2>
+            <p class="text-slate-600 text-base sm:text-lg">
+                Select any destination below to automatically pre-fill your custom travel inquiry form.
+            </p>
+        </div>
+
+        <!-- Destinations Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            
+            <!-- Card 1: Munnar -->
+            <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 flex flex-col group">
+                <div class="relative h-56 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600/0d9488/ffffff?text=Munnar+Kerala';"
+                        alt="Munnar Tea Plantations" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    >
+                    <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/70 backdrop-blur-sm text-white text-xs font-medium">
+                        <i class="fa-solid fa-location-dot text-teal-400 mr-1"></i> Kerala, India
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-xl text-slate-900">Munnar</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-teal-50 text-teal-700">4D / 3N</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Rolling emerald tea estates, misty mountain peaks, waterfalls, and tranquil spice plantations in the Western Ghats.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between mb-4">
+                            <span class="text-xs text-slate-500">Est. Cost / Person</span>
+                            <span class="font-display font-bold text-lg text-slate-900">₹14,500</span>
+                        </div>
+                        <button 
+                            type="button"
+                            data-destination="Munnar, Kerala"
+                            data-budget="₹10,000 - ₹25,000"
+                            class="select-dest-btn w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <span>Select Destination</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2: Ladakh -->
+            <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 flex flex-col group">
+                <div class="relative h-56 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=800&q=80" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600/0284c7/ffffff?text=Leh+Ladakh';"
+                        alt="Pangong Lake Ladakh" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    >
+                    <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/70 backdrop-blur-sm text-white text-xs font-medium">
+                        <i class="fa-solid fa-location-dot text-sky-400 mr-1"></i> Ladakh, India
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-xl text-slate-900">Leh-Ladakh</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-sky-50 text-sky-700">6D / 5N</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            High-altitude mountain passes, crystal-clear Pangong Tso lake, ancient Buddhist monasteries, and dramatic desert valleys.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between mb-4">
+                            <span class="text-xs text-slate-500">Est. Cost / Person</span>
+                            <span class="font-display font-bold text-lg text-slate-900">₹28,000</span>
+                        </div>
+                        <button 
+                            type="button"
+                            data-destination="Leh-Ladakh, India"
+                            data-budget="₹25,000 - ₹50,000"
+                            class="select-dest-btn w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <span>Select Destination</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3: Kyoto -->
+            <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 flex flex-col group">
+                <div class="relative h-56 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600/e11d48/ffffff?text=Kyoto+Japan';"
+                        alt="Kyoto Pagoda and Cherry Blossoms" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    >
+                    <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/70 backdrop-blur-sm text-white text-xs font-medium">
+                        <i class="fa-solid fa-location-dot text-rose-400 mr-1"></i> Japan
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-xl text-slate-900">Kyoto</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-rose-50 text-rose-700">7D / 6N</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Serene bamboo groves, centuries-old Zen temples, traditional tea ceremonies, and vibrant autumn or cherry blossom trails.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between mb-4">
+                            <span class="text-xs text-slate-500">Est. Cost / Person</span>
+                            <span class="font-display font-bold text-lg text-slate-900">₹1,15,000</span>
+                        </div>
+                        <button 
+                            type="button"
+                            data-destination="Kyoto, Japan"
+                            data-budget="₹1,00,000 - ₹2,00,000"
+                            class="select-dest-btn w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <span>Select Destination</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4: Swiss Alps -->
+            <article class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 flex flex-col group">
+                <div class="relative h-56 overflow-hidden">
+                    <img 
+                        src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/800x600/4f46e5/ffffff?text=Swiss+Alps';"
+                        alt="Swiss Alps Alpine Village" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    >
+                    <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/70 backdrop-blur-sm text-white text-xs font-medium">
+                        <i class="fa-solid fa-location-dot text-indigo-400 mr-1"></i> Switzerland
+                    </span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-display font-bold text-xl text-slate-900">Swiss Alps</h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700">8D / 7N</span>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Panoramic Glacier Express train rides, turquoise alpine lakes, Jungfraujoch peaks, and charming wooden chalet villages.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between mb-4">
+                            <span class="text-xs text-slate-500">Est. Cost / Person</span>
+                            <span class="font-display font-bold text-lg text-slate-900">₹1,85,000</span>
+                        </div>
+                        <button 
+                            type="button"
+                            data-destination="Swiss Alps, Switzerland"
+                            data-budget="₹1,00,000 - ₹2,00,000"
+                            class="select-dest-btn w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-brand-600 text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <span>Select Destination</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ==================== PACKAGES HIGHLIGHTS SECTION ==================== -->
+    <section id="packages" class="py-16 bg-white border-y border-slate-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Tailored For You</span>
+                <h2 class="font-display font-bold text-3xl text-slate-900 mt-2">All-Inclusive Travel Packages</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package Tier 1 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-backpack text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Essential Explorer</h3>
+                        <p class="text-slate-600 text-sm mb-6">Ideal for solo backpackers and budget-conscious weekend travelers.</p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Boutique 3-Star Stays & Breakfast</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Shared Sightseeing Transfers</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> 24/7 WhatsApp Travel Support</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-sm text-slate-500">Starts at</span>
+                        <span class="font-display font-bold text-xl text-slate-900">₹12,999</span>
+                    </div>
+                </div>
+
+                <!-- Package Tier 2 (Featured) -->
+                <div class="p-8 rounded-3xl bg-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col justify-between">
+                    <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-500 text-white text-xs font-semibold">Most Popular</span>
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-teal-300 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-Suitcase-rolling fa-suitcase-rolling text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl mb-2">Signature Comfort</h3>
+                        <p class="text-slate-300 text-sm mb-6">Balanced luxury and curated local experiences for couples & families.</p>
+                        <ul class="space-y-3 text-sm text-slate-200 mb-8">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-teal-400"></i> 4-Star Resorts & Half-Board Meals</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-teal-400"></i> Private Chauffeur-Driven Vehicle</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-teal-400"></i> Guided Cultural & Adventure Tours</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-sm text-slate-400">Starts at</span>
+                        <span class="font-display font-bold text-xl text-teal-300">₹29,999</span>
+                    </div>
+                </div>
+
+                <!-- Package Tier 3 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-crown text-xl"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Royal Bespoke</h3>
+                        <p class="text-slate-600 text-sm mb-6">Ultra-luxury retreats with zero compromises and VIP concierge.</p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> 5-Star Luxury Suites & All Meals</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Visa Assistance & Flight Bookings</li>
+                            <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-brand-600"></i> Dedicated Personal Trip Concierge</li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-slate-200 flex items-center justify-between">
+                        <span class="text-sm text-slate-500">Starts at</span>
+                        <span class="font-display font-bold text-xl text-slate-900">₹85,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PLAN YOUR TRIP FORM SECTION ==================== -->
+    <section id="plan-trip" class="py-20 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+            <!-- Form Top Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 px-6 sm:px-10 py-8 sm:py-10 text-white">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-teal-300 text-xs font-semibold uppercase tracking-wider">Free Custom Quote</span>
+                        <h2 class="font-display font-bold text-2xl sm:text-3xl mt-1">Plan Your Dream Trip</h2>
+                        <p class="text-slate-300 text-sm mt-1">Fill in your preferences and our travel architects will craft your itinerary within 24 hours.</p>
+                    </div>
+                    <div id="selected-badge" class="hidden items-center gap-2 px-4 py-2 rounded-2xl bg-teal-500/20 border border-teal-400/30 text-teal-200 text-xs font-medium self-start sm:self-center">
+                        <i class="fa-solid fa-circle-check text-teal-400"></i>
+                        <span id="selected-badge-text">Destination Pre-selected</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Form -->
+            <form id="trip-inquiry-form" novalidate class="p-6 sm:p-10 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Full Name <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-regular fa-user"></i>
+                            </span>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName" 
+                                placeholder="e.g., Aarav Sharma"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm"
+                                required
+                            >
+                        </div>
+                        <p id="error-fullName" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please enter your full name (at least 2 characters).</span>
+                        </p>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Email Address <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="e.g., aarav@example.com"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm"
+                                required
+                            >
+                        </div>
+                        <p id="error-email" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid email address.</span>
+                        </p>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Phone Number <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-solid fa-phone text-xs"></i>
+                            </span>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="e.g., +91 98765 43210"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm"
+                                required
+                            >
+                        </div>
+                        <p id="error-phone" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid 10-digit phone number.</span>
+                        </p>
+                    </div>
+
+                    <!-- Preferred Destination Dropdown -->
+                    <div>
+                        <label for="destination" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Preferred Destination <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </span>
+                            <select 
+                                id="destination" 
+                                name="destination"
+                                class="w-full pl-10 pr-10 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm appearance-none cursor-pointer"
+                                required
+                            >
+                                <option value="">-- Choose a Destination --</option>
+                                <option value="Munnar, Kerala">Munnar, Kerala</option>
+                                <option value="Leh-Ladakh, India">Leh-Ladakh, India</option>
+                                <option value="Kyoto, Japan">Kyoto, Japan</option>
+                                <option value="Swiss Alps, Switzerland">Swiss Alps, Switzerland</option>
+                                <option value="Bali, Indonesia">Bali, Indonesia</option>
+                                <option value="Custom / Other">Custom / Other Destination</option>
+                            </select>
+                            <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-solid fa-chevron-down text-xs"></i>
+                            </span>
+                        </div>
+                        <p id="error-destination" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please select your preferred destination.</span>
+                        </p>
+                    </div>
+
+                    <!-- Travel Date -->
+                    <div>
+                        <label for="travelDate" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Preferred Travel Date <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-regular fa-calendar"></i>
+                            </span>
+                            <input 
+                                type="date" 
+                                id="travelDate" 
+                                name="travelDate"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm cursor-pointer"
+                                required
+                            >
+                        </div>
+                        <p id="error-travelDate" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please select a valid future travel date.</span>
+                        </p>
+                    </div>
+
+                    <!-- Number of Travellers -->
+                    <div>
+                        <label for="travellers" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Number of Travellers <span class="text-rose-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                                <i class="fa-solid fa-users text-xs"></i>
+                            </span>
+                            <input 
+                                type="number" 
+                                id="travellers" 
+                                name="travellers" 
+                                min="1" 
+                                max="30" 
+                                value="2"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm"
+                                required
+                            >
+                        </div>
+                        <p id="error-travellers" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-exclamation"></i> <span>Please enter between 1 and 30 travellers.</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Budget Range (Full Width) -->
+                <div>
+                    <label for="budget" class="block text-sm font-semibold text-slate-700 mb-2">
+                        Estimated Budget Range (per person in ₹) <span class="text-rose-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                        </span>
+                        <select 
+                            id="budget" 
+                            name="budget"
+                            class="w-full pl-10 pr-10 py-3 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm appearance-none cursor-pointer"
+                            required
+                        >
+                            <option value="">-- Select Budget Range --</option>
+                            <option value="₹10,000 - ₹25,000">₹10,000 – ₹25,000 (Budget / Weekend)</option>
+                            <option value="₹25,000 - ₹50,000">₹25,000 – ₹50,000 (Comfort Domestic)</option>
+                            <option value="₹50,000 - ₹1,00,000">₹50,000 – ₹1,00,000 (Premium / Short Haul Intl.)</option>
+                            <option value="₹1,00,000 - ₹2,00,000">₹1,00,000 – ₹2,00,000 (International Explorer)</option>
+                            <option value="₹2,00,000+">₹2,00,000+ (Ultra Luxury / Bespoke)</option>
+                        </select>
+                        <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </div>
+                    <p id="error-budget" class="hidden text-rose-600 text-xs mt-1.5 flex items-center gap-1">
+                        <i class="fa-solid fa-circle-exclamation"></i> <span>Please select an estimated budget range.</span>
+                    </p>
+                </div>
+
+                <!-- Special Requests / Notes -->
+                <div>
+                    <label for="notes" class="block text-sm font-semibold text-slate-700 mb-2">
+                        Special Requests / Notes <span class="text-slate-400 font-normal">(Optional)</span>
+                    </label>
+                    <textarea 
+                        id="notes" 
+                        name="notes" 
+                        rows="3" 
+                        placeholder="Tell us about dietary preferences, honeymoon surprises, wheelchair accessibility, or specific sightseeing spots..."
+                        class="w-full p-4 rounded-xl border border-slate-300 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all text-sm"
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-xs text-slate-500 flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-brand-600"></i> Your details are 100% secure and never shared.
+                    </p>
+                    <button 
+                        type="submit" 
+                        class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-700 active:scale-[0.99] text-white font-semibold text-base shadow-lg shadow-brand-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                        <span>Submit Trip Inquiry</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-compass text-sm"></i>
+                </div>
+                <span class="font-display font-bold text-lg text-white">WanderlustHorizons</span>
+            </div>
+            <p class="text-sm text-center md:text-left">
+                &copy; 2026 Wanderlust Horizons Travel Co. Crafted for dreamers & explorers.
+            </p>
+            <div class="flex space-x-5 text-lg">
+                <a href="#destinations" aria-label="Instagram" class="hover:text-teal-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#destinations" aria-label="Twitter" class="hover:text-teal-400 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#destinations" aria-label="YouTube" class="hover:text-teal-400 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SUBMISSION CONFIRMATION MODAL ==================== -->
+    <div id="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 transform transition-all">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-brand-600 to-teal-700 p-6 text-white text-center relative">
+                <div class="w-16 h-16 rounded-full bg-white text-brand-600 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                    <i class="fa-solid fa-check text-3xl"></i>
+                </div>
+                <h3 id="modal-title" class="font-display font-bold text-2xl">Trip Inquiry Received!</h3>
+                <p class="text-teal-100 text-sm mt-1">Reference ID: <span id="modal-ref-id" class="font-mono font-semibold">#WH-84920</span></p>
+            </div>
+
+            <!-- Modal Body (Trip Summary) -->
+            <div class="p-6 sm:p-8 space-y-4">
+                <p class="text-sm text-slate-600 text-center">
+                    Thank you, <strong id="summary-name" class="text-slate-900">Traveller</strong>! Our travel specialist will reach out to <strong id="summary-email" class="text-slate-900">your email</strong> shortly with a tailored itinerary.
+                </p>
+
+                <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2.5 text-sm">
+                    <div class="flex justify-between py-1 border-b border-slate-200/60">
+                        <span class="text-slate-500">Destination</span>
+                        <span id="summary-destination" class="font-semibold text-slate-900 text-right">-</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-200/60">
+                        <span class="text-slate-500">Travel Date</span>
+                        <span id="summary-date" class="font-semibold text-slate-900">-</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-200/60">
+                        <span class="text-slate-500">Travellers</span>
+                        <span id="summary-travellers" class="font-semibold text-slate-900">-</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-200/60">
+                        <span class="text-slate-500">Budget Range</span>
+                        <span id="summary-budget" class="font-semibold text-brand-700">-</span>
+                    </div>
+                    <div class="flex justify-between py-1">
+                        <span class="text-slate-500">Phone</span>
+                        <span id="summary-phone" class="font-semibold text-slate-900">-</span>
+                    </div>
+                    <div id="summary-notes-wrapper" class="pt-2 border-t border-slate-200/60 hidden">
+                        <span class="text-slate-500 block text-xs mb-1">Special Requests:</span>
+                        <p id="summary-notes" class="text-slate-700 italic text-xs bg-white p-2.5 rounded-xl border border-slate-200/60"></p>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                    <button 
+                        type="button" 
+                        id="close-modal-btn"
+                        class="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-colors cursor-pointer"
+                    >
+                        Done & Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Navigation Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2. Set Minimum Date on Travel Date Picker to Today
+            const travelDateInput = document.getElementById('travelDate');
+            const today = new Date().toISOString().split('T')[0];
+            travelDateInput.setAttribute('min', today);
+
+            // 3. Destination Card "Select Destination" Pre-fill Interaction
+            const selectDestButtons = document.querySelectorAll('.select-dest-btn');
+            const destinationSelect = document.getElementById('destination');
+            const budgetSelect = document.getElementById('budget');
+            const planTripSection = document.getElementById('plan-trip');
+            const selectedBadge = document.getElementById('selected-badge');
+            const selectedBadgeText = document.getElementById('selected-badge-text');
+
+            selectDestButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const chosenDest = button.getAttribute('data-destination');
+                    const suggestedBudget = button.getAttribute('data-budget');
+
+                    // Pre-fill dropdowns
+                    destinationSelect.value = chosenDest;
+                    if (suggestedBudget) {
+                        budgetSelect.value = suggestedBudget;
+                    }
+
+                    // Clear any prior validation errors on those fields
+                    clearFieldError('destination');
+                    clearFieldError('budget');
+
+                    // Show confirmation badge in form header
+                    selectedBadgeText.textContent = `Selected: ${chosenDest}`;
+                    selectedBadge.classList.remove('hidden');
+                    selectedBadge.classList.add('inline-flex');
+
+                    // Smooth scroll to the form and focus name input
+                    planTripSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => {
+                        document.getElementById('fullName').focus({ preventScroll: true });
+                    }, 600);
+                });
+            });
+
+            // 4. Form Validation Helpers
+            const form = document.getElementById('trip-inquiry-form');
+
+            function showFieldError(fieldId) {
+                const input = document.getElementById(fieldId);
+                const errorEl = document.getElementById(`error-${fieldId}`);
+                if (input) {
+                    input.classList.add('border-rose-500', 'ring-1', 'ring-rose-500');
+                    input.classList.remove('border-slate-300');
+                }
+                if (errorEl) {
+                    errorEl.classList.remove('hidden');
+                }
+            }
+
+            function clearFieldError(fieldId) {
+                const input = document.getElementById(fieldId);
+                const errorEl = document.getElementById(`error-${fieldId}`);
+                if (input) {
+                    input.classList.remove('border-rose-500', 'ring-1', 'ring-rose-500');
+                    input.classList.add('border-slate-300');
+                }
+                if (errorEl) {
+                    errorEl.classList.add('hidden');
+                }
+            }
+
+            // Real-time error clearing on user input
+            ['fullName', 'email', 'phone', 'destination', 'travelDate', 'travellers', 'budget'].forEach(id => {
+                const el = document.getElementById(id);
+                el.addEventListener('input', () => clearFieldError(id));
+                el.addEventListener('change', () => clearFieldError(id));
+            });
+
+            // 5. Form Submission & Validation Handler
+            const modal = document.getElementById('confirmation-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Gather values
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const destination = document.getElementById('destination').value;
+                const travelDate = document.getElementById('travelDate').value;
+                const travellers = parseInt(document.getElementById('travellers').value, 10);
+                const budget = document.getElementById('budget').value;
+                const notes = document.getElementById('notes').value.trim();
+
+                let isValid = true;
+
+                // Validate Full Name
+                if (fullName.length < 2) {
+                    showFieldError('fullName');
+                    isValid = false;
+                } else {
+                    clearFieldError('fullName');
+                }
+
+                // Validate Email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    showFieldError('email');
+                    isValid = false;
+                } else {
+                    clearFieldError('email');
+                }
+
+                // Validate Phone (at least 10 digits)
+                const digitsOnly = phone.replace(/\D/g, '');
+                if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+                    showFieldError('phone');
+                    isValid = false;
+                } else {
+                    clearFieldError('phone');
+                }
+
+                // Validate Destination
+                if (!destination) {
+                    showFieldError('destination');
+                    isValid = false;
+                } else {
+                    clearFieldError('destination');
+                }
+
+                // Validate Travel Date
+                if (!travelDate || travelDate < today) {
+                    showFieldError('travelDate');
+                    isValid = false;
+                } else {
+                    clearFieldError('travelDate');
+                }
+
+                // Validate Travellers
+                if (isNaN(travellers) || travellers < 1 || travellers > 30) {
+                    showFieldError('travellers');
+                    isValid = false;
+                } else {
+                    clearFieldError('travellers');
+                }
+
+                // Validate Budget
+                if (!budget) {
+                    showFieldError('budget');
+                    isValid = false;
+                } else {
+                    clearFieldError('budget');
+                }
+
+                if (!isValid) {
+                    // Scroll to first visible error
+                    const firstError = form.querySelector('.border-rose-500');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstError.focus();
+                    }
+                    return;
+                }
+
+                // Populate Confirmation Modal Summary
+                const randomRef = '#WH-' + Math.floor(10000 + Math.random() * 90000);
+                document.getElementById('modal-ref-id').textContent = randomRef;
+                document.getElementById('summary-name').textContent = fullName;
+                document.getElementById('summary-email').textContent = email;
+                document.getElementById('summary-destination').textContent = destination;
+                
+                // Format Date nicely
+                const formattedDate = new Date(travelDate + 'T00:00:00').toLocaleDateString('en-IN', {
+                    day: 'numeric', month: 'short', year: 'numeric'
+                });
+                document.getElementById('summary-date').textContent = formattedDate;
+                document.getElementById('summary-travellers').textContent = `${travellers} ${travellers === 1 ? 'Person' : 'People'}`;
+                document.getElementById('summary-budget').textContent = budget;
+                document.getElementById('summary-phone').textContent = phone;
+
+                const notesWrapper = document.getElementById('summary-notes-wrapper');
+                const notesEl = document.getElementById('summary-notes');
+                if (notes) {
+                    notesEl.textContent = `"${notes}"`;
+                    notesWrapper.classList.remove('hidden');
+                } else {
+                    notesWrapper.classList.add('hidden');
+                }
+
+                // Show Modal
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+
+                // Reset form & badge
+                form.reset();
+                selectedBadge.classList.add('hidden');
+                selectedBadge.classList.remove('inline-flex');
+            });
+
+            // 6. Close Modal Handlers
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
